@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--? Head -->
+  <head>
+    <!-- ? Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Bienvenue sur la page d'accueil de Les Petits Plats, le site officiel pour rechercher des recettes culinaires!"
+    />
+    <!-- ? Title -->
+    <title>Les Petits Plats</title>
+
+    <!-- ? Links -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./assets/favicon.ico" />
+
+    <!-- ? Scripts -->
+    <script
+      defer
+      src="https://kit.fontawesome.com/f1a3a49ed1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" defer src="./scripts/data/dataRecipes.js"></script>
+    <script
+      type="module"
+      defer
+      src="./scripts/services/dataServices.js"
+    ></script>
+    <script type="module" defer src="./scripts/index.js"></script>
+    <script type="module" defer src="./scripts/template/tags.js"></script>
+    <script type="module" defer src="./scripts/template/dropdowns.js"></script>
+    <script type="module" defer src="./scripts/template/cards.js"></script>
+    <script
+    type="module"
+    defer
+    src="./scripts/utils/dropdown-selector.js"
+    ></script>
+    <script type="module" defer src="./scripts/utils/createTags.js"></script>
+    <script type="module" defer src="./scripts/utils/launchSearch.js"></script>
+  </head>
+
+  <!--? Body -->
+  <body>
+    <div class="btn__scroll">
+      <a href="./index.html">
+        <i class="arrows fas fa-chevron-up"></i>
+      </a>
+    </div>
+
+    <!--? Header -->
+    <header class="container__header">
+      <a class="container__header__logo">
+        <img src="./assets/logo_lespetitsplats.webp" />
+      </a>
+    </header>
+
+    <!--? Main -->
+    <main class="container__main">
+      <!--? Section 1 : Input Search -->
+      <section class="container__main__section__search">
+        <form class="container__main__section__search__form">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Rechercher une recette"
+          />
+          <label for="search-input" id="search-label">
+            <i class="fas fa-search"></i>
+          </label>
+        </form>
+      </section>
+
+      <!--? Section 2 : Tags lists -->
+      <section class="container__main__section__filtered__tags">
+        <!--? add template tags js-->
+        <!-- <div
+          class="container__main__section__filtered__tags__lists"
+        >
+          <ul class='container__main__section__filtered__tags__lists__tags-ingredients'>
+            <li>[Tags Ingredients] <i class="fas fa-times-circle"></li>
+          </ul>
+
+          <ul class='container__main__section__filtered__tags__lists__tags-devices'>
+              <li>[Tags Devices] <i class="fas fa-times-circle"></li>
+          </ul>
+
+          <ul class='container__main__section__filtered__tags__lists__tags-ustensils'>
+              <li>[Tags Ustensils] <i class="fas fa-times-circle"></li>
+          </ul>
+        </div> -->
+      </section>
+
+      <!--? Section 3 : Dropdowns Lists -->
+      <section class="container__main__section__dropdowns__lists">
+        <!--? Dropdowns Ingredients Small -->
+        <!--? add template dropdowns js -->
+        <!-- <div class='container__main__section__dropdowns__lists__items'> -->
+        <!-- <div
+          class="container__main__section__dropdowns__lists__items__ingredients__small"
+        >
+          <input
+            type="text"
+            id="sort__by__search__ingrédient__small"
+            placeholder="Ingrédients"
+          />
+          <label for="sort__by__search__ingrédient__small">
+            <i class="arrows fas fa-chevron-down"></i>
+          </label> -->
+
+        <!-- ! List ingredients small position absolute active -->
+        <!-- <div
+            class="container__main__section__dropdowns__lists__items__ingredients__small--active"
+          >
+            <ul>
+              <li>[Ingredients]</li>
+            </ul>
+          </div>
+        </div> -->
+        <!--? Dropdowns Devices Small -->
+        <!-- <div
+          class="container__main__section__dropdowns__lists__items__devices__small"
+        >
+          <input type="text" id="sort-by-appareil" placeholder="Appareils" />
+          <label for="sort-by-appareil">
+            <i class="arrows fas fa-chevron-down"></i>
+          </label>
+          <!-- ! List devices small position absolute active -->
+        <!-- <div
+            class="container__main__section__dropdowns__lists__items__devices__small--active"
+          >
+            <ul>
+              <li>[Devices]</li>
+            </ul>
+          </div>
+        </div> -->
+        <!--? Dropdowns Ustensils Small -->
+        <!-- <div
+          class="container__main__section__dropdowns__lists__items__ustensils__small"
+        >
+          <input type="text" id="sort-by-ustensils" placeholder="Ustensils" />
+          <label for="sort-by-appareil">
+            <i class="arrows fas fa-chevron-down"></i>
+          </label> -->
+        <!-- ! List Ustensils small position absolute active -->
+        <!-- <div
+            class="container__main__section__dropdowns__lists__items__utensils__small--active"
+          >
+            <ul>
+              <li>[Ustensils]</li>
+            </ul>
+          </div>
+        </div> -->
+      </section>
+
+      <!--? Section Cards Recipes -->
+      <section class="container__main__section__cards">
+        <!--? add template cards js-->
+        <!-- <div class="container__main__section__cards__recipe">
+          <img
+            src="./assets/recipies/[Name].webp"
+            alt="[Name]"
+          />
+          <div class="container__main__section__cards__recipe__textContainer">
+            <div
+              class="container__main__section__cards__recipe__textContainer__title"
+            >
+              <h2>[Name]</h2>
+              <span>
+                <i class="far fa-clock"></i>
+                <strong>[Time] + min</strong>
+              </span>
+            </div>
+            <div
+              class="container__main__section__cards__recipe__textContainer__lists"
+            >
+              <ul>
+                <li><strong>[Ingredients]</strong>[Quantity] + [Unit]</li>
+              </ul>
+              <p>
+                [Description]
+              </p>
+            </div>
+          </div> -->
+        <!-- </div> -->
+      </section>
+    </main>
+  </body>
+</html>

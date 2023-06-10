@@ -1,0 +1,14 @@
+{
+  "name": "Project n°7 Les petits plats",
+  "version": "1.0.0",
+  "description": "Implémentez un algorithme de recherche de recettes de cuisines pour le site Les Petits Plats grâce à des outils et méthodes avancées de Javascript.",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/style.scss ./css/style.css"
+  },
+  "author": "El Ghalbzouri Adnan",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.61.0"
+  }
+}

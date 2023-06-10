@@ -1,0 +1,815 @@
+// ? Bases
+*::before::after {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+// ? Google Fonts
+
+// ? LATO :
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+// ? ROBOTO :
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+// ? Btn Scroll top
+.btn__scroll {
+  position: fixed;
+  background-color: #e7e7e7;
+  padding: 15px;
+  border: #000000 1px solid;
+  right: 30px;
+  bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 3;
+
+  & i {
+    color: #000000;
+    font-weight: 700;
+  }
+}
+
+// ? Header
+.container__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 100%;
+
+  & a img {
+    margin: auto;
+    width: 270px;
+  }
+}
+
+// ? Main
+.container__main {
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
+
+  // ? Section Input Search Recipes
+  &__section__search {
+    margin-left: auto;
+    position: relative;
+    margin-right: auto;
+
+    &__form input {
+      width: 100%;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: #e7e7e7;
+      color: #000000;
+      border: none;
+      font-weight: 400;
+      font-family: "Lato", "sans-serif";
+      margin-top: 30px;
+      font-size: 18px;
+
+      &[type="search"] {
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration {
+          display: none;
+        }
+      }
+    }
+
+    &__form label i {
+      position: absolute;
+      right: 25px;
+      top: 45px;
+      color: #000000;
+      font-size: 30px;
+    }
+  }
+
+  // ? Section Tags filtired
+  &__section__filtered__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+
+    &__lists {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      &__tags-ingredients {
+        &--active {
+          display: none;
+          list-style: none;
+          gap: 30px;
+          padding-left: 5px;
+          flex-wrap: wrap;
+
+          & li {
+            font-size: 14px;
+            text-align: justify;
+            font-family: "Lato", "sans-serif";
+            font-weight: 700;
+            background-color: #3282f7;
+            padding: 15px;
+            border-radius: 5px 5px 5px 5px;
+            color: #ffffff;
+          }
+
+          & i {
+            padding-left: 10px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__tags-devices {
+        &--active {
+          display: none;
+          list-style: none;
+          gap: 30px;
+          padding-left: 5px;
+          flex-wrap: wrap;
+
+          & li {
+            font-size: 14px;
+            text-align: justify;
+            font-family: "Lato", "sans-serif";
+            font-weight: 700;
+            color: #ffffff;
+            padding: 15px;
+            background-color: #68d9a4;
+            border-radius: 5px 5px 5px 5px;
+          }
+
+          & i {
+            padding-left: 10px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__tags-ustensils {
+        &--active {
+          display: none;
+          list-style: none;
+          gap: 30px;
+          padding-left: 5px;
+          flex-wrap: wrap;
+
+          & li {
+            font-size: 14px;
+            text-align: justify;
+            font-family: "Lato", "sans-serif";
+            font-weight: 700;
+            color: #ffffff;
+            padding: 15px;
+            background-color: #ed6454;
+            border-radius: 5px 5px 5px 5px;
+          }
+
+          & i {
+            padding-left: 10px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  // ? Section Dropdowns Lists
+  &__section__dropdowns__lists {
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 25px;
+      position: relative;
+
+      @media screen and (max-width: 966px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      // ? Item Ingredients small
+      &__ingredients__small {
+        height: 70px;
+        width: 300px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+
+        @media screen and (max-width: 966px) {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+
+        & input {
+          font-size: 18px;
+          border: none;
+          font-family: "Lato", "sans-serif";
+          font-weight: 700;
+          background-color: #3282f7;
+          border-radius: 5px 5px 5px 5px;
+          text-align: justify;
+          padding-left: 27px;
+          width: 90%;
+          height: 90%;
+          color: #ffffff;
+
+          @media screen and (max-width: 966px) {
+            width: 100%;
+          }
+
+          &::placeholder {
+            color: #ffffff;
+            font-family: "Lato", "sans-serif";
+            cursor: pointer;
+          }
+        }
+
+        & label i {
+          position: absolute;
+          color: #ffffff;
+          right: 25px;
+          top: 28px;
+          font-size: 18px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        // ! Active lists Ingredients small
+        &--active {
+          display: none;
+
+          & ul {
+            background-color: #3282f7;
+            list-style: none;
+            overflow-y: auto;
+            padding-left: 0px;
+            height: 510px;
+            position: absolute;
+            top: 48px;
+            left: 0px;
+            width: 99.8%;
+            line-height: 30px;
+            border-radius: 0px 0px 5px 5px;
+            padding-bottom: 5px;
+            z-index: 2;
+
+            @media screen and (max-width: 966px) {
+              width: 100%;
+            }
+
+            & li {
+              cursor: pointer;
+              color: #ffffff;
+              font-family: "Lato", "sans-serif";
+              padding-left: 30px;
+            }
+          }
+        }
+      }
+
+        // ? Item Ingredients large
+        &__ingredients__large {
+          height: 70px;
+          width: 300px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          position: relative;
+
+          @media screen and (max-width: 966px) {
+            width: 100%;
+            margin-bottom: 40px;
+          }
+  
+          & input {
+            font-size: 18px;
+            border: none;
+            font-family: "Lato", "sans-serif";
+            font-weight: 700;
+            background-color: #3282f7;
+            border-radius: 5px 5px 5px 5px;
+            text-align: justify;
+            padding-left: 27px;
+            width: 90%;
+            height: 90%;
+            color: #ffffff;
+  
+            @media screen and (max-width: 966px) {
+              width: 100%;
+            }
+  
+            &::placeholder {
+              color: #ffffff;
+              font-family: "Lato", "sans-serif";
+              cursor: pointer;
+            }
+          }
+  
+          & label i {
+            position: absolute;
+            color: #ffffff;
+            right: 25px;
+            top: 28px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+          }
+  
+          // ! Active lists Ingredients large
+          &--active {
+            display: none;
+  
+            & ul {
+              display: grid;
+              grid-template-columns: repeat(2,1fr);
+              background-color: #3282f7;
+              list-style: none;
+              overflow-y: auto;
+              padding-left: 0px;
+              height: 510px;
+              position: absolute;
+              top: 48px;
+              left: 0px;
+              width: 95.8%;
+              line-height: 30px;
+              border-radius: 0px 0px 5px 5px;
+              padding-bottom: 5px;
+              z-index: 2;
+  
+              @media screen and (max-width: 966px) {
+                width: 100%;
+              }
+  
+              & li {
+                cursor: pointer;
+                color: #ffffff;
+                font-family: "Lato", "sans-serif";
+                padding-left: 30px;
+              }
+            }
+          }
+        }
+
+      // ? Item Devices small
+      &__devices__small {
+        height: 70px;
+        width: 300px;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        @media screen and (max-width: 966px) {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+
+        & input {
+          font-size: 18px;
+          border: none;
+          font-family: "Lato", "sans-serif";
+          font-weight: 700;
+          background-color: #68d9a4;
+          border-radius: 5px 5px 5px 5px;
+          text-align: justify;
+          padding-left: 27px;
+          width: 90%;
+          height: 90%;
+          color: #ffffff;
+
+          @media screen and (max-width: 966px) {
+            width: 100%;
+          }
+
+          &::placeholder {
+            color: #ffffff;
+            font-family: "Lato", "sans-serif";
+            cursor: pointer;
+          }
+        }
+
+        & label i {
+          position: absolute;
+          color: #ffffff;
+          right: 25px;
+          top: 28px;
+          font-size: 18px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        // ! Item Devices small lists active
+        &--active {
+          display: none;
+
+          & ul {
+            background-color: #68d9a4;
+            list-style: none;
+            overflow-y: auto;
+            padding-left: 0px;
+            height: 340px;
+            position: absolute;
+            top: 48px;
+            left: 0px;
+            width: 99.8%;
+            line-height: 30px;
+            border-radius: 0px 0px 5px 5px;
+            z-index: 2;
+            padding-bottom: 5px;
+
+            @media screen and (max-width: 966px) {
+              width: 100%;
+            }
+
+            & li {
+              cursor: pointer;
+              color: #ffffff;
+              font-family: "Lato", "sans-serif";
+              padding-left: 30px;
+            }
+          }
+        }
+      }
+
+      // ? Item devices large
+      &__devices__large {
+        height: 70px;
+        width: 300px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+
+        @media screen and (max-width: 966px) {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+
+        & input {
+          font-size: 18px;
+          border: none;
+          font-family: "Lato", "sans-serif";
+          font-weight: 700;
+          background-color: #68d9a4;
+          border-radius: 5px 5px 5px 5px;
+          text-align: justify;
+          padding-left: 27px;
+          width: 90%;
+          height: 90%;
+          color: #ffffff;
+
+          @media screen and (max-width: 966px) {
+            width: 100%;
+          }
+
+          &::placeholder {
+            color: #ffffff;
+            font-family: "Lato", "sans-serif";
+            cursor: pointer;
+          }
+        }
+
+        & label i {
+          position: absolute;
+          color: #ffffff;
+          right: 25px;
+          top: 28px;
+          font-size: 18px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        // ! Active lists devices large
+        &--active {
+          display: none;
+
+          & ul {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            background-color: #68d9a4;
+            list-style: none;
+            overflow-y: auto;
+            padding-left: 0px;
+            height: 340px;
+            position: absolute;
+            top: 48px;
+            left: 0px;
+            width: 95.8%;
+            line-height: 30px;
+            border-radius: 0px 0px 5px 5px;
+            padding-bottom: 5px;
+            z-index: 3;
+
+            @media screen and (max-width: 966px) {
+              width: 100%;
+            }
+
+            & li {
+              cursor: pointer;
+              color: #ffffff;
+              font-family: "Lato", "sans-serif";
+              padding-left: 30px;
+            }
+          }
+        }
+      }
+
+      // ? Item Ustensils small
+      &__ustensils__small {
+        height: 70px;
+        width: 300px;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        @media screen and (max-width: 966px) {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+
+        & input {
+          font-size: 18px;
+          border: none;
+          font-family: "Lato", "sans-serif";
+          font-weight: 700;
+          background-color: #ed6454;
+          border-radius: 5px 5px 5px 5px;
+          text-align: justify;
+          padding-left: 27px;
+          width: 90%;
+          height: 90%;
+          color: #ffffff;
+
+          @media screen and (max-width: 966px) {
+            width: 100%;
+          }
+
+          &::placeholder {
+            color: #ffffff;
+            font-family: "Lato", "sans-serif";
+            cursor: pointer;
+          }
+        }
+
+        & label i {
+          position: absolute;
+          color: #ffffff;
+          right: 25px;
+          top: 28px;
+          font-size: 18px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        // ! Item Ustensils small lists active
+        &--active {
+          display: none;
+
+          & ul {
+            background-color: #ed6454;
+            list-style: none;
+            overflow-y: auto;
+            padding-left: 0px;
+            height: 510px;
+            position: absolute;
+            top: 48px;
+            left: 0px;
+            width: 99.8%;
+            line-height: 30px;
+            border-radius: 0px 0px 5px 5px;
+            padding-bottom: 5px;
+            z-index: 2;
+
+            @media screen and (max-width: 966px) {
+              width: 100%;
+            }
+
+            & li {
+              cursor: pointer;
+              color: #ffffff;
+              font-family: "Lato", "sans-serif";
+              padding-left: 30px;
+            }
+          }
+        }
+      }
+       // ? Item Ustensils large
+       &__ustensils__large {
+        height: 70px;
+        width: 300px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+
+        @media screen and (max-width: 966px) {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+
+        & input {
+          font-size: 18px;
+          border: none;
+          font-family: "Lato", "sans-serif";
+          font-weight: 700;
+          background-color: #ed6454;
+          border-radius: 5px 5px 5px 5px;
+          text-align: justify;
+          padding-left: 27px;
+          width: 90%;
+          height: 90%;
+          color: #ffffff;
+
+          @media screen and (max-width: 966px) {
+            width: 100%;
+          }
+
+          &::placeholder {
+            color: #ffffff;
+            font-family: "Lato", "sans-serif";
+            cursor: pointer;
+          }
+        }
+
+        & label i {
+          position: absolute;
+          color: #ffffff;
+          right: 25px;
+          top: 28px;
+          font-size: 18px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+
+        // ! Active lists Ustensils large
+        &--active {
+          display: none;
+
+          & ul {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            background-color: #ed6454;
+            list-style: none;
+            overflow-y: auto;
+            padding-left: 0px;
+            height: 510px;
+            position: absolute;
+            top: 48px;
+            left: 0px;
+            width: 95.8%;
+            line-height: 30px;
+            border-radius: 0px 0px 5px 5px;
+            padding-bottom: 5px;
+            z-index: 2;
+
+            @media screen and (max-width: 966px) {
+              width: 100%;
+            }
+
+            & li {
+              cursor: pointer;
+              color: #ffffff;
+              font-family: "Lato", "sans-serif";
+              padding-left: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // ? Section Cards Recipes
+  &__section__cards {
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+
+    @media screen and (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 735px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media screen and (max-width: 966px) {
+      margin-top: 20px;
+    }
+
+    &__recipe {
+      width: 100%;
+      height: 400px;
+      max-width: 700px;
+      background-color: #e7e7e7;
+      border-radius: 5px 5px 5px 5px;
+
+      @media screen and (max-width: 1100px) {
+        height: 420px;
+      }
+
+      & img {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        border: none;
+        border-radius: 5px 5px 0px 0px;
+      }
+
+      &__textContainer {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px 10px 20px;
+        color: #000000;
+
+        &__title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          & h2 {
+            font-size: 18px;
+            color: #000000;
+            font-weight: 500;
+            font-family: "Lato", "sans-serif";
+          }
+
+          & span {
+            @media screen and (max-width: 1560px) {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 5px;
+            }
+
+            & strong {
+              font-weight: 700;
+              font-size: 18px;
+              text-align: center;
+              font-family: "Lato", "sans-serif";
+            }
+          }
+        }
+
+        &__lists {
+          display: flex;
+          gap: 80px;
+
+          & ul {
+            width: 100%;
+            max-height: 90px;
+            overflow-y: auto;
+            padding-left: 0px;
+
+            & li {
+              font-size: 12px;
+              color: #000000;
+              font-family: "Lato", "sans-serif";
+              width: 100%;
+            }
+          }
+
+          & p {
+            font-size: 12px;
+            color: #000000;
+            font-family: "Roboto", "sans-serif";
+            display: -webkit-box;
+            -webkit-line-clamp: 7;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#no-recipes-message {
+    font-weight: bold;
+    position: absolute;
+    left: 440px;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 700;
+    font-family: "Lato", "sans-serif";
+}
