@@ -66,44 +66,34 @@ export const launchSearch = () => {
 
 
     //? Variables pour les contrôles des critères de filtrage
-    let checkUstensil = true;
-    let checkDevice = true;
-    let checkIngredient = true;
     let checkSearch = true;
 
-    
-      //? Vérification des tags d'ingrédients sélectionnés
-      if (selectedTagsIngredients.length > 0) {
-        selectedTagsIngredients.forEach((tag) => {
-          tag = tag.trim();
-          if (!recipeIngredients.includes(tag.toLowerCase())) {
-            checkIngredient = false;
-          }
-        });
-      }
+
+    //? Vérification des tags d'ingrédients sélectionnés
+    const checkIngredient = selectedTagsIngredients.length > 0
+    ? selectedTagsIngredients.every((tag) => {
+        const trimmedTag = tag.trim();
+        return recipeIngredients.includes(trimmedTag.toLowerCase());
+      })
+    : true;
 
 
-
-    // //? Vérification des tags d'appareils sélectionnés
-    if (selectedTagsDevices.length > 0) {
-      for (let i = 0; i < selectedTagsDevices.length; i++) {
-        let tag = selectedTagsDevices[i].trim();
-        if (!recipe.appliance.toLowerCase().includes(tag.toLowerCase())) {
-          checkDevice = false;
-        }
-      }
-    }
+    //? Vérification des tags d'appareils sélectionnés
+    const checkDevice = selectedTagsDevices.length > 0
+    ? selectedTagsDevices.every((tag) => {
+        const trimmedTag = tag.trim();
+        return recipe.appliance.toLowerCase().includes(trimmedTag.toLowerCase());
+      })
+    : true;
 
 
      //? Vérification des tags d'ustensiles sélectionnés
-     if (selectedTagsUstensils.length > 0) {
-      selectedTagsUstensils.forEach((tag) => {
-        tag = tag.trim();
-        if (!recipeUstensils.includes(tag.toLowerCase())) {
-          checkUstensil = false;
-        }
-      });
-    }
+    const checkUstensil = selectedTagsUstensils.length > 0
+    ? selectedTagsUstensils.every((tag) => {
+        const trimmedTag = tag.trim();
+        return recipeUstensils.includes(trimmedTag.toLowerCase());
+      })
+    : true;
 
 
     
