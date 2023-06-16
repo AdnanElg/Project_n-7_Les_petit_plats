@@ -3,14 +3,14 @@ import { launchSearch } from "../utils/launchSearch.js";
 
 //? Création de la fonction cards qui prend un objet "cards" en argument
 export const cards = (cards) => {
-  //? Création d'un élément div pour les cards
-  const cardsElements = document.createElement("div");
+	//? Création d'un élément div pour les cards
+	const cardsElements = document.createElement("div");
 
-  //? Ajout d'une classe CSS à l'élément cardsElements
-  cardsElements.classList.add("container__main__section__cards__recipe");
+	//? Ajout d'une classe CSS à l'élément cardsElements
+	cardsElements.classList.add("container__main__section__cards__recipe");
 
-  //? Création d'un template HTML pour les cards
-  const cardsTemplate = `
+	//? Création d'un template HTML pour les cards
+	const cardsTemplate = `
         <img
             src="./assets/recipies/${cards.image}"
             alt="${cards.name}"
@@ -30,13 +30,13 @@ export const cards = (cards) => {
             >
                 <ul>
                   ${cards.ingredients
-                    .map(
-                      (ingredient) =>
-                        `<li><strong>${ingredient.ingredient} :</strong> ${
-                        ingredient.quantity || ""
-                        } ${ingredient.unit || ""}</li>`
-                    )
-                    .join("")}
+		.map(
+			(ingredient) =>
+				`<li><strong>${ingredient.ingredient} :</strong> ${
+					ingredient.quantity || ""
+				} ${ingredient.unit || ""}</li>`
+		)
+		.join("")}
                 </ul>
                 <p>
                   ${cards.description}
@@ -45,16 +45,16 @@ export const cards = (cards) => {
         </div>
   `;
 
-  //? Ajout du template HTML dans l'élément cardsElements
-  cardsElements.innerHTML = cardsTemplate;
+	//? Ajout du template HTML dans l'élément cardsElements
+	cardsElements.innerHTML = cardsTemplate;
   
-  //? Retourne l'élément cardsElements
-  return cardsElements;
+	//? Retourne l'élément cardsElements
+	return cardsElements;
 };
   
-  //? Récuperation de mon input
-  const searchInput = document.querySelector("#search-input");
-  //? Faire un event dans mon input pour appliquer mon searchRecipes et filtre mes recipes
-  searchInput.addEventListener("input", () => {
-    launchSearch(); 
-  });
+//? Récuperation de mon input
+const searchInput = document.querySelector("#search-input");
+//? Faire un event dans mon input pour appliquer mon searchRecipes et filtre mes recipes
+searchInput.addEventListener("input", () => {
+	launchSearch(); 
+});
