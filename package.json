@@ -9,6 +9,7 @@
   "author": "El Ghalbzouri Adnan",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.42.0",
     "sass": "^1.61.0"
   }
 }
