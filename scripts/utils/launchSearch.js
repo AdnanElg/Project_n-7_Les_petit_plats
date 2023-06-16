@@ -52,7 +52,6 @@ export const launchSearch = () => {
       if (ingredient && ingredient.ingredient) {
         return ingredient.ingredient.toLowerCase();
       }
-      throw new Error("Ingrédient manquant ou invalide.");
     });
 
 
@@ -61,7 +60,6 @@ export const launchSearch = () => {
       if (ustensil) {
         return ustensil.toLowerCase();
       }
-      throw new Error("Ustensils manquant ou invalide.");
     });
 
 
