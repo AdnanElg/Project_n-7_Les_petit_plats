@@ -9,28 +9,29 @@ export const launchSearch = () => {
 	const tagsIngredientsList = document.querySelectorAll(
 		".container__main__section__filtered__tags__lists__tags-ingredients--active li"
 	);
-	const selectedTagsIngredients = Array.from(tagsIngredientsList).map(
-		(tag) => tag.textContent,
-	);
 
+	const selectedTagsIngredients = Array.from(tagsIngredientsList, (tag) =>
+		tag.textContent
+	);
 
 
 	//? Récupération des tags d'appareils sélectionnés
 	const tagsDevicesList = document.querySelectorAll(
 		".container__main__section__filtered__tags__lists__tags-devices--active li"
 	);
-	const selectedTagsDevices = Array.from(tagsDevicesList).map(
-		(tag) => tag.textContent
+
+	const selectedTagsDevices = Array.from(tagsDevicesList, (tag) =>
+		tag.textContent
 	);
-  
+
   
 
 	//? Récupération des tags d'ustensiles sélectionnés
 	const tagsUstensilsList = document.querySelectorAll(
 		".container__main__section__filtered__tags__lists__tags-ustensils--active li"
 	);
-	const selectedTagsUstensils = Array.from(tagsUstensilsList).map(
-		(tag) => tag.textContent
+	const selectedTagsUstensils = Array.from(tagsUstensilsList, (tag) =>
+		tag.textContent
 	);
 
 
@@ -48,20 +49,22 @@ export const launchSearch = () => {
 	dataRecipes.forEach((recipe) => {
 
 		//? Récupération des ingrédients de la recette
-		const recipeIngredients = recipe.ingredients.map((ingredient) => {
+		const recipeIngredients = [];
+		for (let i = 0; i < recipe.ingredients.length; i++) {
+			const ingredient = recipe.ingredients[i];
 			if (ingredient && ingredient.ingredient) {
-				return ingredient.ingredient.toLowerCase();
+				recipeIngredients.push(ingredient.ingredient.toLowerCase());
 			}
-		});
-
-
+		}
+		
 		//? Récupération des ustensiles de la recette
-		const recipeUstensils = recipe.ustensils.map((ustensil) => {
+		const recipeUstensils = [];
+		for (let i = 0; i < recipe.ustensils.length; i++) {
+			const ustensil = recipe.ustensils[i];
 			if (ustensil) {
-				return ustensil.toLowerCase();
+				recipeUstensils.push(ustensil.toLowerCase());
 			}
-		});
-
+		}
 
 		//? Variables pour les contrôles des critères de filtrage
 		let checkUstensil = true;
@@ -109,8 +112,8 @@ export const launchSearch = () => {
 		if (searchTerm.length >= 3) {
 			if (
 				!(recipe.name.toLowerCase().includes(searchTerm)) &&
-        !recipeIngredients.includes(searchTerm) &&
-        !(recipe.description.toLowerCase().includes(searchTerm))
+				!recipeIngredients.includes(searchTerm) &&
+				!(recipe.description.toLowerCase().includes(searchTerm))
 			) {
 				checkSearch = false;
 			}

@@ -2,16 +2,16 @@
 import { dropdownSelector } from "../utils/dropdown-selector.js";
 
 export const dropdowns = (ingredients, appliance, ustensils) => {
-  //? Création du container pour les dropdowns
-  const dropdownsContainer = document.createElement("div");
+	//? Création du container pour les dropdowns
+	const dropdownsContainer = document.createElement("div");
 
-  //? Ajout de la classe CSS au container
-  dropdownsContainer.classList.add(
-    "container__main__section__dropdowns__lists__items"
-  );
+	//? Ajout de la classe CSS au container
+	dropdownsContainer.classList.add(
+		"container__main__section__dropdowns__lists__items"
+	);
 
-  //? Création du template pour les dropdowns
-  const dropdownsTemplate = `
+	//? Création du template pour les dropdowns
+	const dropdownsTemplate = `
 
         <div
           class="container__main__section__dropdowns__lists__items__ingredients__small"
@@ -29,8 +29,8 @@ export const dropdowns = (ingredients, appliance, ustensils) => {
           >
             <ul>
               ${ingredients
-                .map((ingredient) => `<li>${ingredient}</li>`)
-                .join("")}
+		.map((ingredient) => `<li>${ingredient}</li>`)
+		.join("")}
             </ul>
           </div>
           <div
@@ -38,8 +38,8 @@ export const dropdowns = (ingredients, appliance, ustensils) => {
           >
             <ul>
               ${ingredients
-                .map((ingredient) => `<li>${ingredient}</li>`)
-                .join("")}
+		.map((ingredient) => `<li>${ingredient}</li>`)
+		.join("")}
             </ul>
           </div>
         </div> 
@@ -64,8 +64,8 @@ export const dropdowns = (ingredients, appliance, ustensils) => {
           >
             <ul>
               ${appliance
-                .map((appliance) => `<li>${appliance}</li>`)
-                .join("")}
+		.map((appliance) => `<li>${appliance}</li>`)
+		.join("")}
             </ul>
           </div>
         </div> 
@@ -90,20 +90,20 @@ export const dropdowns = (ingredients, appliance, ustensils) => {
           >
             <ul>
               ${ustensils
-                .map((ustensils) => `<li>${ustensils}</li>`)
-                .join("")}
+		.map((ustensils) => `<li>${ustensils}</li>`)
+		.join("")}
             </ul>
           </div>
         </div>
   `;
 
-  //? Ajout du template à l'intérieur du container
-  dropdownsContainer.innerHTML = dropdownsTemplate;
+	//? Ajout du template à l'intérieur du container
+	dropdownsContainer.innerHTML = dropdownsTemplate;
 
-  setTimeout(() => {
-    dropdownSelector();
-  }, 50);
+	setTimeout(() => {
+		dropdownSelector();
+	}, 50);
 
-  //? Renvoie le container avec les dropdowns
-  return dropdownsContainer;
+	//? Renvoie le container avec les dropdowns
+	return dropdownsContainer;
 };
