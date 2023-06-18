@@ -136,6 +136,7 @@ export const launchSearch = () => {
 
 	// * INGREDIENTS SMALL *//
 	// ! Filtered Dropdownd Ingrediants small :
+
 	const searchInputIngredientsSmall = document.querySelector(
 		"#sort__by__search__ingrédient__small"
 	);
@@ -169,11 +170,18 @@ export const launchSearch = () => {
 
 	// * INGREDIENTS LARGE *//
 	// ! Filtered Dropdownd Ingrediants large :
+
+	let listsLargeIngredient = document.querySelector(
+		".container__main__section__dropdowns__lists__items__ingredients__large--active ul"
+	);
+
 	const searchInputIngredientsLarge = document.querySelector(
 		"#sort__by__search__ingrédient__small"
 	);
 
-	searchInputIngredientsLarge.addEventListener("click", (e) => {
+	searchInputIngredientsLarge.addEventListener("input", (e) => {
+
+		listsLargeIngredient.style.height = "auto";
 
 		const searchValueIngredientsLarge = e.target.value.toLowerCase();
       
@@ -198,6 +206,7 @@ export const launchSearch = () => {
 
 	// * DEVICES SMALL *//
 	// ! Filtered Dropdownd Devices small :
+
 	const searchInputDevicesSmall = document.querySelector("#sort-by-appareil");
 
 	const devicesArray = foundRecipes.map(recipe =>
@@ -229,9 +238,17 @@ export const launchSearch = () => {
 
 	// * DEVICES LARGE *//
 	// ! Filtered Dropdownd Devices large :
+
+	let listsLargeDevices = document.querySelector(
+		".container__main__section__dropdowns__lists__items__devices__large--active ul"
+	);
+
 	const searchInputDevicesLarge = document.querySelector("#sort-by-appareil");
 
-	searchInputDevicesLarge.addEventListener("click", (e) => {
+	searchInputDevicesLarge.addEventListener("input", (e) => {
+
+		listsLargeDevices.style.height = "auto";
+
 		const searchValueDevicesLarge = e.target.value.toLowerCase();
 
 		const filteredDevicesLarge = allDevicesArray.filter((appliance) =>
@@ -254,6 +271,7 @@ export const launchSearch = () => {
 
 	// * USTENSILS SMALL *//
 	// ! Filtered Dropdownd Ustensils small :
+
 	const searchInputUstensilsSmall = document.querySelector("#sort-by-ustensils");
 
 	const ustensilsArray = foundRecipes.flatMap(recipe =>
@@ -282,10 +300,17 @@ export const launchSearch = () => {
 
 	// * USTENSILS LARGE *//
 	// ! Filtered Dropdownd Ustensils large :
+
+	let listsLargeUstensils = document.querySelector(
+		".container__main__section__dropdowns__lists__items__ustensils__large--active ul"
+	);
+
 	const searchInputUstensilsLarge = document.querySelector("#sort-by-ustensils");
 
-	searchInputUstensilsLarge.addEventListener("click", (e) => {
+	searchInputUstensilsLarge.addEventListener("input", (e) => {
 
+		listsLargeUstensils.style.height = "auto";
+		
 		const searchValueUstensilsLarge = e.target.value.toLowerCase();
 
 		const filteredUstensilsLarge = allUstensilsArray.filter((ustensils) =>

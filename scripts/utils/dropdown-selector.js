@@ -41,7 +41,7 @@ export const dropdownSelector = () => {
 		} 
 		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des du grand ingrédients avec une height de 100px
 		else if (ingredientSmallSearch.value.length >= 2 && isDropdownIngredient) {
-			listsLargeIngredient.style.height = "100px";
+			listsLargeIngredient.style.height = "auto";
 		}
 		//? Si la longueur de la chaîne de recherche est inférieure à 2 caractères, masque la liste déroulante des petits ingrédients, met la flèche vers le bas et rétablit la hauteur de la liste déroulante des grands ingrédients
 		else {
@@ -68,7 +68,8 @@ export const dropdownSelector = () => {
 			//? Masque la liste déroulante des petits ingrédients
 			openListsSmallIngredient.style.display = "none"; 
 			//? Met à jour l'état du dropdown pour indiquer qu'il est maintenant étendu
-			isDropdownIngredient = true;     
+			isDropdownIngredient = true;    
+
 		} else {
 			//? Réduit le conteneur du dropdown en modifiant la largeur
 			containerIngredientSmall.style.width = "300px";
@@ -129,7 +130,7 @@ export const dropdownSelector = () => {
 		} 
 		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des grands appareils avec une hauteur de 60px
 		else if (applianceSmallSearch.value.length >= 2 && isDropdownAppliance) {
-			listsLargeAppliance.style.height = "60px";
+			listsLargeAppliance.style.height = "auto";
 		}
 		//? Sinon, masque la liste déroulante, met la flèche vers le bas et rétablit la hauteur de la liste déroulante des grands appareils
 		else {
@@ -218,7 +219,7 @@ export const dropdownSelector = () => {
 		}
 		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des grands ustensiles avec une hauteur de 60px
 		else if (ustensilsSmallSearch.value.length >= 2 && isDropdownUstensils) {
-			listsLargeUstensils.style.height = "60px";
+			listsLargeUstensils.style.height = "auto";
 		}
 		//? Sinon, masque la liste déroulante, met la flèche vers le bas et rétablit la hauteur de la liste déroulante des grands ustensiles
 		else {
@@ -249,6 +250,7 @@ export const dropdownSelector = () => {
 			//? Met à jour l'état du dropdown pour indiquer qu'il est maintenant étendu
 			isDropdownUstensils = true;
 		} else {
+		
 			//? Réduit le conteneur du dropdown en modifiant la largeur
 			containerUstensilSmall.style.width = "300px";
 			//? Modifie la position de la flèche
