@@ -6,7 +6,7 @@ export const dataServices = {
 	async getAllRecipes() {
 		try {
 			//? Affichage des données pour vérification
-			// console.log(dataRecipes);
+			console.log(dataRecipes);
 			//? Retour des données
 			return dataRecipes;
 		} catch (err) {
@@ -30,7 +30,7 @@ export const dataServices = {
 			const allIngredients = Array.from(allIngredientsSet);
 
 			//? Affichage des données pour vérification
-			// console.log(allIngredients);
+			console.log(allIngredients);
 			//? Retour des données
 			return allIngredients;
 		} catch (err) {
@@ -54,7 +54,7 @@ export const dataServices = {
 			const allAppliance = Array.from(allApplianceSet);
 
 			//? Affichage des données pour vérification
-			// console.log(allAppliance);
+			console.log(allAppliance);
 
 			//? Retour des données
 			return allAppliance;
@@ -80,7 +80,7 @@ export const dataServices = {
 			const allUstensils = Array.from(allUstensilsSet);
 
 			//? Affichage des données pour vérification
-			// console.log(allUstensils);
+			console.log(allUstensils);
 
 			//? Retour des données
 			return allUstensils;

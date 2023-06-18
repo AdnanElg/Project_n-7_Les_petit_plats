@@ -52,9 +52,16 @@ export const cards = (cards) => {
 	return cardsElements;
 };
   
+//? Appel de la fonction launchSearch au chargement de la page
+window.addEventListener("DOMContentLoaded", () => {
+	launchSearch();
+});
+
 //? Récuperation de mon input
 const searchInput = document.querySelector("#search-input");
 //? Faire un event dans mon input pour appliquer mon searchRecipes et filtre mes recipes
 searchInput.addEventListener("input", () => {
 	launchSearch(); 
 });
+
+
