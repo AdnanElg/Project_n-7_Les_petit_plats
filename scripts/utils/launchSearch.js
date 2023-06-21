@@ -14,7 +14,6 @@ export const launchSearch = () => {
 		tag.textContent
 	);
 
-
 	//? Récupération des tags d'appareils sélectionnés
 	const tagsDevicesList = document.querySelectorAll(
 		".container__main__section__filtered__tags__lists__tags-devices--active li"
@@ -24,16 +23,15 @@ export const launchSearch = () => {
 		tag.textContent
 	);
 
-  
-
 	//? Récupération des tags d'ustensiles sélectionnés
 	const tagsUstensilsList = document.querySelectorAll(
 		".container__main__section__filtered__tags__lists__tags-ustensils--active li"
 	);
+
 	const selectedTagsUstensils = Array.from(tagsUstensilsList, (tag) =>
 		tag.textContent
 	);
-
+		
 
 
 	//? Récupération de la valeur saisie dans l'input de recherche
@@ -45,8 +43,11 @@ export const launchSearch = () => {
 	//? Tableau pour stocker les recettes trouvées
 	var foundRecipes = [];
 
+
+
 	//? Parcours des recettes pour filtrer en fonction des critères sélectionnés
-	dataRecipes.forEach((recipe) => {
+	for (let i = 0; i < dataRecipes.length; i++) {
+		const recipe = dataRecipes[i];
 
 		//? Récupération des ingrédients de la recette
 		const recipeIngredients = [];
@@ -56,6 +57,7 @@ export const launchSearch = () => {
 				recipeIngredients.push(ingredient.ingredient.toLowerCase());
 			}
 		}
+
 		
 		//? Récupération des ustensiles de la recette
 		const recipeUstensils = [];
@@ -66,6 +68,7 @@ export const launchSearch = () => {
 			}
 		}
 
+
 		//? Variables pour les contrôles des critères de filtrage
 		let checkUstensil = true;
 		let checkDevice = true;
@@ -75,37 +78,41 @@ export const launchSearch = () => {
     
 		//? Vérification des tags d'ingrédients sélectionnés
 		if (selectedTagsIngredients.length > 0) {
-			selectedTagsIngredients.forEach((tag) => {
-				tag = tag.trim();
+			let i = 0;
+			while (i < selectedTagsIngredients.length) {
+				let tag = selectedTagsIngredients[i].trim();
 				if (!recipeIngredients.includes(tag.toLowerCase())) {
 					checkIngredient = false;
 				}
-			});
-		}
-
+				i++;
+			}
+		}  
 
 
 		// //? Vérification des tags d'appareils sélectionnés
 		if (selectedTagsDevices.length > 0) {
-			for (let i = 0; i < selectedTagsDevices.length; i++) {
+			let i = 0;
+			while (i < selectedTagsDevices.length) {
 				let tag = selectedTagsDevices[i].trim();
 				if (!recipe.appliance.toLowerCase().includes(tag.toLowerCase())) {
 					checkDevice = false;
 				}
+				i++;
 			}
-		}
+		}  
 
 
 		//? Vérification des tags d'ustensiles sélectionnés
 		if (selectedTagsUstensils.length > 0) {
-			selectedTagsUstensils.forEach((tag) => {
-				tag = tag.trim();
+			let i = 0;
+			while (i < selectedTagsUstensils.length) {
+				let tag = selectedTagsUstensils[i].trim();
 				if (!recipeUstensils.includes(tag.toLowerCase())) {
 					checkUstensil = false;
 				}
-			});
-		}
-
+				i++;
+			}
+		}  
 
     
 		//? Vérification du critère de recherche textuelle
@@ -124,7 +131,7 @@ export const launchSearch = () => {
 		if (checkUstensil && checkDevice && checkIngredient && checkSearch) {
 			foundRecipes.push(recipe);
 		}
-	});
+	}
 
 
 	//? Récupération de la section des cartes
@@ -133,18 +140,16 @@ export const launchSearch = () => {
 	);
 
 
-
 	//? Affichage des résultats ou du message d'aucune recette trouvée
 	if (foundRecipes.length === 0) {
 		// eslint-disable-next-line quotes
 		cardsSection.innerHTML = `<p id="no-recipes-message">Aucune recette trouvée :(</p>`;
 	} else {
 		cardsSection.innerHTML = "";
-		foundRecipes.forEach((recipe) => {
-			cardsSection.append(cards(recipe));
-		});
-	}
-	
+		for (let i = 0; i < foundRecipes.length; i++) {
+			cardsSection.append(cards(foundRecipes[i]));
+		}
+	}  
 
 
 	// * INGREDIENTS SMALL *//

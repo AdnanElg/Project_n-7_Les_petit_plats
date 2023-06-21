@@ -39,7 +39,7 @@ export const dropdownSelector = () => {
 			arrowSmallIngredientDown.className = "arrows fas fa-chevron-up";
 			listsSmallIngredient.style.height = "auto";
 		} 
-		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des du grand ingrédients avec une height de 100px
+		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des du grand ingrédients avec une height de 500px
 		else if (ingredientSmallSearch.value.length >= 2 && isDropdownIngredient) {
 			listsLargeIngredient.style.height = "auto";
 		}
