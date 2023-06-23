@@ -47,7 +47,6 @@ export const dropdownSelector = () => {
 		else {
 			openListsSmallIngredient.style.display = "none";
 			arrowSmallIngredientDown.className = "arrows fas fa-chevron-down";
-			listsLargeIngredient.style.height = "300px";
 		}
 	});
 
@@ -245,8 +244,6 @@ export const dropdownSelector = () => {
 			openListsLargeUstensils.style.display = "block";
 			//? Masque la liste déroulante des petits Ustensils
 			openListsSmallUstensils.style.display = "none"; 
-			//? listsLargeUstensils height 240px 
-			listsLargeUstensils.style.height = "240px";
 			//? Met à jour l'état du dropdown pour indiquer qu'il est maintenant étendu
 			isDropdownUstensils = true;
 		} else {

@@ -290,7 +290,8 @@
   list-style: none;
   overflow-y: auto;
   padding-left: 0px;
-  height: 300px;
+  height: auto;
+  max-height: 300px;
   position: absolute;
   top: 48px;
   left: 0px;
@@ -442,7 +443,8 @@
   list-style: none;
   overflow-y: auto;
   padding-left: 0px;
-  height: 240px;
+  height: auto;
+  max-height: 300px;
   position: absolute;
   top: 48px;
   left: 0px;
@@ -594,7 +596,8 @@
   list-style: none;
   overflow-y: auto;
   padding-left: 0px;
-  height: 240px;
+  height: auto;
+  max-height: 300px;
   position: absolute;
   top: 48px;
   left: 0px;

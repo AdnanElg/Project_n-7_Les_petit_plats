@@ -151,177 +151,146 @@ export const launchSearch = () => {
 		}
 	}  
 
-
+	setTimeout(() => {
 	
-	// * INGREDIENTS SMALL *//
-	// ! Filtered Dropdownd Ingrediants small Input :
+		// * INGREDIENTS SMALL *//
+		// ! Filtered Dropdownd Ingrediants small Input :
 
-	const searchInputIngredientsSmall = document.querySelector(
-		"#sort__by__search__ingrédient__small"
-	);
-
-	const ingredientsArray = foundRecipes.flatMap(recipe =>
-		recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase())
-	);
-
-	const ingredientSet = new Set(ingredientsArray);
-
-	const allIngredientsArray = Array.from(ingredientSet);
-
-	searchInputIngredientsSmall.addEventListener("input", (e) => {
-		const searchValueIngredientsSmall = e.target.value.toLowerCase();
-
-		const filteredIngredientsSmall = allIngredientsArray.filter((ingredient) =>
-			ingredient.toLowerCase().includes(searchValueIngredientsSmall)
+		const searchInputIngredientsSmall = document.querySelector(
+			"#sort__by__search__ingrédient__small"
+		);
+		console.log(foundRecipes);
+		const ingredientsArray = foundRecipes.flatMap(recipe =>
+			recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase())
 		);
 
-		const ingredientsListSmall = document.querySelector(
-			".container__main__section__dropdowns__lists__items__ingredients__small--active ul"
-		);
 
-		ingredientsListSmall.innerHTML = filteredIngredientsSmall
-			.map((ingredient) => `<li>${ingredient}</li>`)
-			.join("");
-	});
+		const ingredientSet = new Set(ingredientsArray);
 
+		const allIngredientsArray = Array.from(ingredientSet);
 
+		searchInputIngredientsSmall.addEventListener("input", (e) => {
+			const searchValueIngredientsSmall = e.target.value.toLowerCase();
 
-	// * INGREDIENTS LARGE *//
-	// ! Filtered Dropdownd Ingrediants large Input :
-
-	let listsLargeIngredient = document.querySelector(
-		".container__main__section__dropdowns__lists__items__ingredients__large--active ul"
-	);
-
-	const searchInputIngredientsLarge = document.querySelector(
-		"#sort__by__search__ingrédient__small"
-	);
-
-	searchInputIngredientsLarge.addEventListener("input", (e) => {
-
-		const searchValueIngredientsLarge = e.target.value.toLowerCase();
-      
-		const filteredIngredientsLarge = allIngredientsArray.filter((ingredient) =>
-			ingredient.toLowerCase().includes(searchValueIngredientsLarge)
-		);
-
-		const ingredientsListLarge = document.querySelector(
-			".container__main__section__dropdowns__lists__items__ingredients__large--active ul"
-		);
-
-		ingredientsListLarge.innerHTML = filteredIngredientsLarge
-			.map((ingredient) => `<li>${ingredient}</li>`)
-			.join("");
-	});
-
-
-
-	// * INGREDIENTS LARGE *//
-	// ! Filtered Dropdownd Ingrediants large Click:
-	let arrowSmallIngredientDown = document.querySelector(
-		".container__main__section__dropdowns__lists__items__ingredients__small .fa-chevron-down"
-	);
-
-	if (arrowSmallIngredientDown) {
-		arrowSmallIngredientDown.addEventListener("click", () => {
-			if (searchTerm.length >= 3) {
-				listsLargeIngredient.style.height = "auto";
-			} else if (searchTerm.length <= 3) {
-				listsLargeIngredient.style.height = "300px";
-			}
-	
-			const filteredIngredientsLarge = allIngredientsArray.filter((ingredient) =>
-				ingredient.toLowerCase()
+			const filteredIngredientsSmall = allIngredientsArray.filter((ingredient) =>
+				ingredient.toLowerCase().includes(searchValueIngredientsSmall)
 			);
-	
+
+			const ingredientsListSmall = document.querySelector(
+				".container__main__section__dropdowns__lists__items__ingredients__small--active ul"
+			);
+
+			ingredientsListSmall.innerHTML = filteredIngredientsSmall
+				.map((ingredient) => `<li>${ingredient}</li>`)
+				.join("");
+		});
+
+
+
+		// * INGREDIENTS LARGE *//
+		// ! Filtered Dropdownd Ingrediants large Input 
+
+		const searchInputIngredientsLarge = document.querySelector(
+			"#sort__by__search__ingrédient__small"
+		);
+
+		searchInputIngredientsLarge.addEventListener("input", (e) => {
+
+			const searchValueIngredientsLarge = e.target.value.toLowerCase();
+		
+			const filteredIngredientsLarge = allIngredientsArray.filter((ingredient) =>
+				ingredient.toLowerCase().includes(searchValueIngredientsLarge)
+			);
+
 			const ingredientsListLarge = document.querySelector(
 				".container__main__section__dropdowns__lists__items__ingredients__large--active ul"
 			);
-		
+
 			ingredientsListLarge.innerHTML = filteredIngredientsLarge
 				.map((ingredient) => `<li>${ingredient}</li>`)
 				.join("");
 		});
-	}
-
-
-	// ************************************************* Fin du DropDownFiltered Ingredient *********************************************************************//
 
 
 
-	// * DEVICES SMALL *//
-	// ! Filtered Dropdownd Devices small Input :
-
-	const searchInputDevicesSmall = document.querySelector("#sort-by-appareil");
-
-	const devicesArray = foundRecipes.map(recipe =>
-		recipe.appliance.toLowerCase()
-	);
-
-	const devicesSet = new Set(devicesArray);
-
-	const allDevicesArray = Array.from(devicesSet);
-
-
-	searchInputDevicesSmall.addEventListener("input", (e) => {
-		const searchValueDevicesSmall = e.target.value.toLowerCase();
-
-		const filteredDevicesSmall = allDevicesArray.filter((appliance) =>
-			appliance.includes(searchValueDevicesSmall)
+		// * INGREDIENTS LARGE *//
+		// ! Filtered Dropdownd Ingrediants large Click:
+		const filteredIngredientsLarge = allIngredientsArray.filter((ingredient) =>
+			ingredient.toLowerCase()
 		);
-
-		const devicesListSmall = document.querySelector(
-			".container__main__section__dropdowns__lists__items__devices__small--active ul"
+		
+		const ingredientsListLarge = document.querySelector(
+			".container__main__section__dropdowns__lists__items__ingredients__large--active ul"
 		);
-
-		devicesListSmall.innerHTML = filteredDevicesSmall
-			.map((appliance) => `<li>${appliance}</li>`)
+			
+		ingredientsListLarge.innerHTML = filteredIngredientsLarge
+			.map((ingredient) => `<li>${ingredient}</li>`)
 			.join("");
-	});
+		
+
+
+		// ************************************************* Fin du DropDownFiltered Ingredient *********************************************************************//
 
 
 
-	// * DEVICES LARGE *//
-	// ! Filtered Dropdownd Devices large Input :
+		// * DEVICES SMALL *//
+		// ! Filtered Dropdownd Devices small Input :
 
-	let listsLargeDevices = document.querySelector(
-		".container__main__section__dropdowns__lists__items__devices__large--active ul"
-	);
+		const searchInputDevicesSmall = document.querySelector("#sort-by-appareil");
 
-	const searchInputDevicesLarge = document.querySelector("#sort-by-appareil");
-
-	searchInputDevicesLarge.addEventListener("input", (e) => {
-
-		const searchValueDevicesLarge = e.target.value.toLowerCase();
-
-		const filteredDevicesLarge = allDevicesArray.filter((appliance) =>
-			appliance.includes(searchValueDevicesLarge)
+		const devicesArray = foundRecipes.map(recipe =>
+			recipe.appliance.toLowerCase()
 		);
 
-		const devicesListLarge = document.querySelector(
-			".container__main__section__dropdowns__lists__items__devices__large--active ul"
-		);
-    
-		devicesListLarge.innerHTML = filteredDevicesLarge
-			.map((appliance) => `<li>${appliance}</li>`)
-			.join("");
-	});
+		const devicesSet = new Set(devicesArray);
+
+		const allDevicesArray = Array.from(devicesSet);
+
+
+		searchInputDevicesSmall.addEventListener("input", (e) => {
+			const searchValueDevicesSmall = e.target.value.toLowerCase();
+
+			const filteredDevicesSmall = allDevicesArray.filter((appliance) =>
+				appliance.includes(searchValueDevicesSmall)
+			);
+
+			const devicesListSmall = document.querySelector(
+				".container__main__section__dropdowns__lists__items__devices__small--active ul"
+			);
+
+			devicesListSmall.innerHTML = filteredDevicesSmall
+				.map((appliance) => `<li>${appliance}</li>`)
+				.join("");
+		});
 
 
 
-	// * DEVICES LARGE *//
-	// ! Filtered Dropdownd Devices large Click :
+		// * DEVICES LARGE *//
+		// ! Filtered Dropdownd Devices large Input :
 
-	let arrowSmallAppliance = document.querySelector(
-		".container__main__section__dropdowns__lists__items__devices__small .fa-chevron-down"
-	);
+		const searchInputDevicesLarge = document.querySelector("#sort-by-appareil");
 
-	arrowSmallAppliance.addEventListener("click", () => {
-		if (searchTerm.length >= 3) {
-			listsLargeDevices.style.height = "auto";
-		} else if (searchTerm.length <= 3) {
-			listsLargeDevices.style.height = "240px";
-		}
+		searchInputDevicesLarge.addEventListener("input", (e) => {
+
+			const searchValueDevicesLarge = e.target.value.toLowerCase();
+
+			const filteredDevicesLarge = allDevicesArray.filter((appliance) =>
+				appliance.includes(searchValueDevicesLarge)
+			);
+
+			const devicesListLarge = document.querySelector(
+				".container__main__section__dropdowns__lists__items__devices__large--active ul"
+			);
+		
+			devicesListLarge.innerHTML = filteredDevicesLarge
+				.map((appliance) => `<li>${appliance}</li>`)
+				.join("");
+		});
+
+
+
+		// * DEVICES LARGE *//
+		// ! Filtered Dropdownd Devices large Click :	
 
 		const filteredDevicesLarge = allDevicesArray.filter((appliance) =>
 			appliance.toLocaleLowerCase()
@@ -332,83 +301,67 @@ export const launchSearch = () => {
 		devicesListLarge.innerHTML = filteredDevicesLarge
 			.map((appliance) => `<li>${appliance}</li>`)
 			.join("");
-	});
 
 
-	// ************************************************* Fin du DropDownFiltered Devices *********************************************************************//
+		// ************************************************* Fin du DropDownFiltered Devices *********************************************************************//
 
 
 
-	// * USTENSILS SMALL *//
-	// ! Filtered Dropdownd Ustensils small Input :
+		// * USTENSILS SMALL *//
+		// ! Filtered Dropdownd Ustensils small Input :
+		
+		const searchInputUstensilsSmall = document.querySelector("#sort-by-ustensils");
+
+		const ustensilsArray = foundRecipes.flatMap(recipe =>
+			recipe.ustensils.map(ustensil => ustensil.toLowerCase())
+		);
+		const ustensilsSet = new Set(ustensilsArray);
+
+		const allUstensilsArray = Array.from(ustensilsSet);
+
+		searchInputUstensilsSmall.addEventListener("input", (e) => {
+			const searchValueUstensilsSmall = e.target.value.toLowerCase();
+
+			const filteredUstensilsSmall = allUstensilsArray.filter((ustensils) =>
+				ustensils.includes(searchValueUstensilsSmall)
+			);
+
+			const ustensilsListSmall = document.querySelector(
+				".container__main__section__dropdowns__lists__items__ustensils__small--active ul"
+			);
+			ustensilsListSmall.innerHTML = filteredUstensilsSmall
+				.map((ustensils) => `<li>${ustensils}</li>`)
+				.join("");
+		});
+
+
+
+		// * USTENSILS LARGE *//
+		// ! Filtered Dropdownd Ustensils large Input :
+
+		const searchInputUstensilsLarge = document.querySelector("#sort-by-ustensils");
+
+		searchInputUstensilsLarge.addEventListener("input", (e) => {
+
+			const searchValueUstensilsLarge = e.target.value.toLowerCase();
+
+			const filteredUstensilsLarge = allUstensilsArray.filter((ustensils) =>
+				ustensils.includes(searchValueUstensilsLarge)
+			);
+
+			const ustensilsListLarge = document.querySelector(
+				".container__main__section__dropdowns__lists__items__ustensils__large--active ul"
+			);
 	
-	const searchInputUstensilsSmall = document.querySelector("#sort-by-ustensils");
-
-	const ustensilsArray = foundRecipes.flatMap(recipe =>
-		recipe.ustensils.map(ustensil => ustensil.toLowerCase())
-	);
-	const ustensilsSet = new Set(ustensilsArray);
-
-	const allUstensilsArray = Array.from(ustensilsSet);
-
-	searchInputUstensilsSmall.addEventListener("input", (e) => {
-		const searchValueUstensilsSmall = e.target.value.toLowerCase();
-
-		const filteredUstensilsSmall = allUstensilsArray.filter((ustensils) =>
-			ustensils.includes(searchValueUstensilsSmall)
-		);
-
-		const ustensilsListSmall = document.querySelector(
-			".container__main__section__dropdowns__lists__items__ustensils__small--active ul"
-		);
-		ustensilsListSmall.innerHTML = filteredUstensilsSmall
-			.map((ustensils) => `<li>${ustensils}</li>`)
-			.join("");
-	});
+			ustensilsListLarge.innerHTML = filteredUstensilsLarge
+				.map((ustensils) => `<li>${ustensils}</li>`)
+				.join("");
+		});
 
 
 
-	// * USTENSILS LARGE *//
-	// ! Filtered Dropdownd Ustensils large Input :
-
-	let listsLargeUstensils = document.querySelector(
-		".container__main__section__dropdowns__lists__items__ustensils__large--active ul"
-	);
-
-	const searchInputUstensilsLarge = document.querySelector("#sort-by-ustensils");
-
-	searchInputUstensilsLarge.addEventListener("input", (e) => {
-
-		const searchValueUstensilsLarge = e.target.value.toLowerCase();
-
-		const filteredUstensilsLarge = allUstensilsArray.filter((ustensils) =>
-			ustensils.includes(searchValueUstensilsLarge)
-		);
-
-		const ustensilsListLarge = document.querySelector(
-			".container__main__section__dropdowns__lists__items__ustensils__large--active ul"
-		);
-  
-		ustensilsListLarge.innerHTML = filteredUstensilsLarge
-			.map((ustensils) => `<li>${ustensils}</li>`)
-			.join("");
-	});
-
-
-
-	// * USTENSILS LARGE *//
-	// ! Filtered Dropdownd Ustensils large Click :
-
-	let arrowSmallUstensils = document.querySelector(
-		".container__main__section__dropdowns__lists__items__ustensils__small .fa-chevron-down"
-	);
-
-	arrowSmallUstensils.addEventListener("click", () => {
-		if (searchTerm.length >= 3) {
-			listsLargeUstensils.style.height = "auto";
-		} else if (searchTerm.length <= 3) {
-			listsLargeUstensils.style.height = "240px";
-		}
+		// * USTENSILS LARGE *//
+		// ! Filtered Dropdownd Ustensils large Click :
 
 		const filteredUstensilsLarge = allUstensilsArray.filter((ustensils) =>
 			ustensils.toLocaleLowerCase()
@@ -417,11 +370,11 @@ export const launchSearch = () => {
 		const ustensilsListLarge = document.querySelector(
 			".container__main__section__dropdowns__lists__items__ustensils__large--active ul"
 		);
-  
+	
 		ustensilsListLarge.innerHTML = filteredUstensilsLarge
 			.map((ustensils) => `<li>${ustensils}</li>`)
 			.join("");
-	});
+	}, 100);
   
 	// ************************************************* Fin du DropDownFiltered Ustensils *********************************************************************//
 
