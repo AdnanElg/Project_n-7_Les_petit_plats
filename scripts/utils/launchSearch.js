@@ -31,17 +31,17 @@ export const launchSearch = () => {
 	const selectedTagsUstensils = Array.from(tagsUstensilsList, (tag) =>
 		tag.textContent
 	);
-		
+
 
 
 	//? Récupération de la valeur saisie dans l'input de recherche
-	const searchInput = document.querySelector("#search-input");
-	const searchTerm = searchInput.value.toLowerCase();
-
+	var searchInput = document.querySelector("#search-input");
+	var searchTerm = searchInput.value.toLowerCase();
 
 
 	//? Tableau pour stocker les recettes trouvées
 	var foundRecipes = [];
+	console.log(foundRecipes);
 
 
 
@@ -152,8 +152,9 @@ export const launchSearch = () => {
 	}  
 
 
+	
 	// * INGREDIENTS SMALL *//
-	// ! Filtered Dropdownd Ingrediants small :
+	// ! Filtered Dropdownd Ingrediants small Input :
 
 	const searchInputIngredientsSmall = document.querySelector(
 		"#sort__by__search__ingrédient__small"
@@ -186,7 +187,7 @@ export const launchSearch = () => {
 
 
 	// * INGREDIENTS LARGE *//
-	// ! Filtered Dropdownd Ingrediants large :
+	// ! Filtered Dropdownd Ingrediants large Input :
 
 	let listsLargeIngredient = document.querySelector(
 		".container__main__section__dropdowns__lists__items__ingredients__large--active ul"
@@ -197,7 +198,7 @@ export const launchSearch = () => {
 	);
 
 	searchInputIngredientsLarge.addEventListener("input", (e) => {
-		listsLargeIngredient.style.height = "auto";
+
 		const searchValueIngredientsLarge = e.target.value.toLowerCase();
       
 		const filteredIngredientsLarge = allIngredientsArray.filter((ingredient) =>
@@ -215,12 +216,41 @@ export const launchSearch = () => {
 
 
 
+	// * INGREDIENTS LARGE *//
+	// ! Filtered Dropdownd Ingrediants large Click:
+	let arrowSmallIngredientDown = document.querySelector(
+		".container__main__section__dropdowns__lists__items__ingredients__small .fa-chevron-down"
+	);
+
+	if (arrowSmallIngredientDown) {
+		arrowSmallIngredientDown.addEventListener("click", () => {
+			if (searchTerm.length >= 3) {
+				listsLargeIngredient.style.height = "auto";
+			} else if (searchTerm.length <= 3) {
+				listsLargeIngredient.style.height = "300px";
+			}
+	
+			const filteredIngredientsLarge = allIngredientsArray.filter((ingredient) =>
+				ingredient.toLowerCase()
+			);
+	
+			const ingredientsListLarge = document.querySelector(
+				".container__main__section__dropdowns__lists__items__ingredients__large--active ul"
+			);
+		
+			ingredientsListLarge.innerHTML = filteredIngredientsLarge
+				.map((ingredient) => `<li>${ingredient}</li>`)
+				.join("");
+		});
+	}
+
+
 	// ************************************************* Fin du DropDownFiltered Ingredient *********************************************************************//
 
 
 
 	// * DEVICES SMALL *//
-	// ! Filtered Dropdownd Devices small :
+	// ! Filtered Dropdownd Devices small Input :
 
 	const searchInputDevicesSmall = document.querySelector("#sort-by-appareil");
 
@@ -252,7 +282,7 @@ export const launchSearch = () => {
 
 
 	// * DEVICES LARGE *//
-	// ! Filtered Dropdownd Devices large :
+	// ! Filtered Dropdownd Devices large Input :
 
 	let listsLargeDevices = document.querySelector(
 		".container__main__section__dropdowns__lists__items__devices__large--active ul"
@@ -261,7 +291,6 @@ export const launchSearch = () => {
 	const searchInputDevicesLarge = document.querySelector("#sort-by-appareil");
 
 	searchInputDevicesLarge.addEventListener("input", (e) => {
-		listsLargeDevices.style.height = "auto";
 
 		const searchValueDevicesLarge = e.target.value.toLowerCase();
 
@@ -279,12 +308,39 @@ export const launchSearch = () => {
 	});
 
 
+
+	// * DEVICES LARGE *//
+	// ! Filtered Dropdownd Devices large Click :
+
+	let arrowSmallAppliance = document.querySelector(
+		".container__main__section__dropdowns__lists__items__devices__small .fa-chevron-down"
+	);
+
+	arrowSmallAppliance.addEventListener("click", () => {
+		if (searchTerm.length >= 3) {
+			listsLargeDevices.style.height = "auto";
+		} else if (searchTerm.length <= 3) {
+			listsLargeDevices.style.height = "240px";
+		}
+
+		const filteredDevicesLarge = allDevicesArray.filter((appliance) =>
+			appliance.toLocaleLowerCase()
+		);
+		const devicesListLarge = document.querySelector(
+			".container__main__section__dropdowns__lists__items__devices__large--active ul"
+		);
+		devicesListLarge.innerHTML = filteredDevicesLarge
+			.map((appliance) => `<li>${appliance}</li>`)
+			.join("");
+	});
+
+
 	// ************************************************* Fin du DropDownFiltered Devices *********************************************************************//
 
 
 
 	// * USTENSILS SMALL *//
-	// ! Filtered Dropdownd Ustensils small :
+	// ! Filtered Dropdownd Ustensils small Input :
 	
 	const searchInputUstensilsSmall = document.querySelector("#sort-by-ustensils");
 
@@ -313,7 +369,7 @@ export const launchSearch = () => {
 
 
 	// * USTENSILS LARGE *//
-	// ! Filtered Dropdownd Ustensils large :
+	// ! Filtered Dropdownd Ustensils large Input :
 
 	let listsLargeUstensils = document.querySelector(
 		".container__main__section__dropdowns__lists__items__ustensils__large--active ul"
@@ -322,12 +378,40 @@ export const launchSearch = () => {
 	const searchInputUstensilsLarge = document.querySelector("#sort-by-ustensils");
 
 	searchInputUstensilsLarge.addEventListener("input", (e) => {
-		listsLargeUstensils.style.height = "auto";
 
 		const searchValueUstensilsLarge = e.target.value.toLowerCase();
 
 		const filteredUstensilsLarge = allUstensilsArray.filter((ustensils) =>
 			ustensils.includes(searchValueUstensilsLarge)
+		);
+
+		const ustensilsListLarge = document.querySelector(
+			".container__main__section__dropdowns__lists__items__ustensils__large--active ul"
+		);
+  
+		ustensilsListLarge.innerHTML = filteredUstensilsLarge
+			.map((ustensils) => `<li>${ustensils}</li>`)
+			.join("");
+	});
+
+
+
+	// * USTENSILS LARGE *//
+	// ! Filtered Dropdownd Ustensils large Click :
+
+	let arrowSmallUstensils = document.querySelector(
+		".container__main__section__dropdowns__lists__items__ustensils__small .fa-chevron-down"
+	);
+
+	arrowSmallUstensils.addEventListener("click", () => {
+		if (searchTerm.length >= 3) {
+			listsLargeUstensils.style.height = "auto";
+		} else if (searchTerm.length <= 3) {
+			listsLargeUstensils.style.height = "240px";
+		}
+
+		const filteredUstensilsLarge = allUstensilsArray.filter((ustensils) =>
+			ustensils.toLocaleLowerCase()
 		);
 
 		const ustensilsListLarge = document.querySelector(

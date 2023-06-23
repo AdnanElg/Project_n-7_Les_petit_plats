@@ -39,7 +39,7 @@ export const dropdownSelector = () => {
 			arrowSmallIngredientDown.className = "arrows fas fa-chevron-up";
 			listsSmallIngredient.style.height = "auto";
 		} 
-		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des du grand ingrédients avec une height de 500px
+		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des du grand ingrédients avec une height de auto.
 		else if (ingredientSmallSearch.value.length >= 2 && isDropdownIngredient) {
 			listsLargeIngredient.style.height = "auto";
 		}
@@ -47,7 +47,7 @@ export const dropdownSelector = () => {
 		else {
 			openListsSmallIngredient.style.display = "none";
 			arrowSmallIngredientDown.className = "arrows fas fa-chevron-down";
-			listsLargeIngredient.style.height = "500px";
+			listsLargeIngredient.style.height = "300px";
 		}
 	});
 
@@ -128,7 +128,7 @@ export const dropdownSelector = () => {
 			arrowSmallAppliance.className = "arrows fas fa-chevron-up";
 			listsSmallAppliance.style.height = "auto";
 		} 
-		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des grands appareils avec une hauteur de 60px
+		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des grands appareils avec une hauteur de auto.
 		else if (applianceSmallSearch.value.length >= 2 && isDropdownAppliance) {
 			listsLargeAppliance.style.height = "auto";
 		}
@@ -136,7 +136,6 @@ export const dropdownSelector = () => {
 		else {
 			openListsSmallAppliance.style.display = "none";
 			arrowSmallAppliance.className = "arrows fas fa-chevron-down";
-			listsLargeAppliance.style.height = "340px";
 		}
 	});
 
@@ -217,7 +216,7 @@ export const dropdownSelector = () => {
 			arrowSmallUstensils.className = "arrows fas fa-chevron-up";
 			listsSmallUstensils.style.height = "auto";
 		}
-		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des grands ustensiles avec une hauteur de 60px
+		//? Si non si la longueur de la chaîne de recherche est supérieure ou égale à 2 caractères et que le dropdown est étendu, affiche la liste déroulante des grands ustensiles avec une hauteur de auto.
 		else if (ustensilsSmallSearch.value.length >= 2 && isDropdownUstensils) {
 			listsLargeUstensils.style.height = "auto";
 		}
@@ -225,7 +224,6 @@ export const dropdownSelector = () => {
 		else {
 			openListsSmallUstensils.style.display = "none";
 			arrowSmallUstensils.className = "arrows fas fa-chevron-down";
-			listsLargeUstensils.style.height = "340px";
 		}
 	});
 
@@ -247,6 +245,8 @@ export const dropdownSelector = () => {
 			openListsLargeUstensils.style.display = "block";
 			//? Masque la liste déroulante des petits Ustensils
 			openListsSmallUstensils.style.display = "none"; 
+			//? listsLargeUstensils height 240px 
+			listsLargeUstensils.style.height = "240px";
 			//? Met à jour l'état du dropdown pour indiquer qu'il est maintenant étendu
 			isDropdownUstensils = true;
 		} else {
