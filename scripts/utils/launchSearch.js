@@ -41,7 +41,6 @@ export const launchSearch = () => {
 
 	//? Tableau pour stocker les recettes trouvées
 	var foundRecipes = [];
-	console.log(foundRecipes);
 
 
 
@@ -159,7 +158,7 @@ export const launchSearch = () => {
 		const searchInputIngredientsSmall = document.querySelector(
 			"#sort__by__search__ingrédient__small"
 		);
-		console.log(foundRecipes);
+
 		const ingredientsArray = foundRecipes.flatMap(recipe =>
 			recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase())
 		);
