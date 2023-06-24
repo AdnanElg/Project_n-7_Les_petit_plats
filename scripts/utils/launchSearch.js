@@ -163,7 +163,6 @@ export const launchSearch = () => {
 			recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase())
 		);
 
-
 		const ingredientSet = new Set(ingredientsArray);
 
 		const allIngredientsArray = Array.from(ingredientSet);
