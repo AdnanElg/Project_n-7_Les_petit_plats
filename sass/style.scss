@@ -353,6 +353,11 @@
               @media screen and (max-width: 966px) {
                 width: 100%;
               }
+
+              @media screen and (max-width: 700px) {
+                display: grid !important;
+                grid-template-columns: repeat(1,1fr) !important;
+              }
            
               & li {
                 cursor: pointer;
@@ -519,6 +524,12 @@
               width: 100%;
             }
 
+            @media screen and (max-width: 700px) {
+              display: grid !important;
+              grid-template-columns: repeat(1,1fr) !important;
+            }
+
+
             & li {
               cursor: pointer;
               color: #ffffff;
@@ -681,6 +692,11 @@
 
             @media screen and (max-width: 966px) {
               width: 100%;
+            }
+
+            @media screen and (max-width: 700px) {
+              display: grid !important;
+              grid-template-columns: repeat(1,1fr) !important;
             }
 
             & li {
